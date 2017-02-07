@@ -19,6 +19,9 @@ ADD /requirements/ /tmp/requirements
 RUN /opt/ds/bin/pip install -r /tmp/requirements/pre-requirements.txt
 RUN /opt/ds/bin/pip install -r /tmp/requirements/requirements.txt
 
+RUN pip3 install spacy
+RUN python3 -m spacy.en.download all
+
 RUN useradd --create-home --home-dir /home/ds --shell /bin/bash ds
 RUN chown -R ds /opt/ds
 RUN adduser ds sudo
